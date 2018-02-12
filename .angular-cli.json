@@ -9,7 +9,8 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        { "glob": "**/*", "input": "../node_modules/@bcp/styleguide/dist/fonts", "output": "./assets/fonts/" }
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,9 +20,14 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/@bcp/styleguide/dist/css/bootstrap.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/popper.js/dist/umd/popper.min.js",
+        "../node_modules/@bcp/styleguide/dist/js/bootstrap.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
