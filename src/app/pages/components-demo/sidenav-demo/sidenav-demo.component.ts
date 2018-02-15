@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidenav-demo.component.css']
 })
 export class SidenavDemoComponent implements OnInit {
+  ToggleSidenavDemo = true;
+  SidenavFixedState = false;
 
   constructor() { }
 
