@@ -1,0 +1,4 @@
+<div class="form-group" [class.is-invalid]="invalid" [class.is-valid]="valid" #fieldContainer>
+  <ng-content></ng-content>
+  <span class="form-group__icon" *ngIf="invalid || valid"></span>
+</div>
