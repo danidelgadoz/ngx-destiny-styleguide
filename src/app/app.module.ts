@@ -9,13 +9,15 @@ import { StyleguideModule } from './styleguide/styleguide.module';
 import { ComponentsDemoComponent } from './pages/components-demo/components-demo.component';
 import { SidenavDemoComponent } from './pages/components-demo/sidenav-demo/sidenav-demo.component';
 import { IntroduccionComponent } from './pages/introduccion/introduccion.component';
+import { FormFieldDemoComponent } from './pages/components-demo/form-field-demo/form-field-demo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ComponentsDemoComponent,
     SidenavDemoComponent,
-    IntroduccionComponent
+    IntroduccionComponent,
+    FormFieldDemoComponent
   ],
   imports: [
     BrowserModule,

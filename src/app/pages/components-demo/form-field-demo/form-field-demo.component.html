@@ -1,0 +1,55 @@
+<p>
+  form-field-demo works!
+</p>
+
+<app-form-field>
+  <label>Input vacío</label>
+  <input type="text" class="form-control" >
+</app-form-field>
+
+<app-form-field>
+  <label>Input A (Double binding)</label>
+  <input type="text" class="form-control" [(ngModel)]="inputBindingA">
+</app-form-field>
+
+<app-form-field>
+  <label>Input B (Double binding / Empty at init)</label>
+  <input type="text" class="form-control" [(ngModel)]="inputBindingB">
+</app-form-field>
+
+<button type="button" class="btn btn-primary" (click)="inputDemoBindingSet()">Change Input B content (from component.ts)</button>
+<button type="button" class="btn btn-primary" (click)="inputDemoBindingClear()">Clear Input B content (from component.ts)</button>
+
+<app-form-field>
+  <label for="textAreaTest">Textarea vacio</label>
+  <textarea id="textAreaTest" rows="1" class="form-control"></textarea>
+</app-form-field>
+
+<app-form-field>
+  <label for="textAreaTest2">Textarea completado</label>
+  <textarea id="textAreaTest2" rows="1" class="form-control">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a euismod lectus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus a iaculis felis.</textarea>
+</app-form-field>
+
+<app-form-field [invalid]="inputInvalid">
+  <label>Correo</label>
+  <input type="email" class="form-control">
+  <div class="invalid-feedback" *ngIf="inputInvalid">Ingresar un correo válido.</div>
+</app-form-field>
+
+<app-form-field [valid]="inputValid">
+  <label>Correo</label>
+  <input type="email" class="form-control">
+</app-form-field>
+
+<app-form-field [invalid]="inputInvalid">
+  <label>Contraseña</label>
+  <input type="password" class="form-control" value="Typing">
+  <div class="invalid-feedback" *ngIf="inputInvalid">Contraseña incorrecta.</div>
+</app-form-field>
+
+<app-form-field [valid]="inputValid">
+  <label>Contraseña</label>
+  <input type="password" class="form-control" value="Typing">
+</app-form-field>
+
+<button type="button" class="btn btn-primary" (click)="validationDemo()">Show and Hide validations</button>
