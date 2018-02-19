@@ -7,16 +7,24 @@ import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
 })
 export class FormFieldComponent implements OnInit {
   @ViewChild('fieldContainer') fieldContainerElement: ElementRef;
+  private inputElement: HTMLInputElement;
+
   @Input() invalid;
   @Input() valid;
-  inputElement: HTMLInputElement;
+  @Input()
+  set listener(value: any) {
+      if (value) {
+        this.fieldContainerElement.nativeElement.classList.add('active');
+      } else {
+        this.fieldContainerElement.nativeElement.classList.remove('active');
+      }
+  }
 
   constructor() {}
 
   ngOnInit() {
     this.inputElement = this.fieldContainerElement.nativeElement.querySelector('.form-control');
     this.addingFloatingLabelTransition();
-    this.watchingNgModalChange();
 
     if (this.inputElement.type === 'textarea') {
       this.textareaTypeFunctionality();
@@ -24,25 +32,20 @@ export class FormFieldComponent implements OnInit {
   }
 
   addingFloatingLabelTransition() {
-    const floatingLabelTransition = (() => {
+    if (this.inputElement.value.length > 0) {
+      this.fieldContainerElement.nativeElement.classList.add('active');
+    }
+
+    this.inputElement.addEventListener('focusin', () => {
       if (this.inputElement.value.length === 0) {
-        this.fieldContainerElement.nativeElement.classList.toggle('active');
-      }
-    });
-
-    this.inputElement.addEventListener('focusin', floatingLabelTransition);
-    this.inputElement.addEventListener('focusout', floatingLabelTransition);
-  }
-
-  watchingNgModalChange() {
-    const watching = (() => {
-      if (this.inputElement.value.length > 0) {
         this.fieldContainerElement.nativeElement.classList.add('active');
       }
     });
-
-    watching();
-    setInterval(() => { watching(); }, 100);
+    this.inputElement.addEventListener('focusout', () => {
+      if (this.inputElement.value.length === 0) {
+        this.fieldContainerElement.nativeElement.classList.remove('active');
+      }
+    });
   }
 
   textareaTypeFunctionality() {

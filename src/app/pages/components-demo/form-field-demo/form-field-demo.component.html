@@ -7,14 +7,14 @@
   <input type="text" class="form-control" >
 </app-form-field>
 
-<app-form-field>
+<app-form-field [listener]="inputA.value">
   <label>Input A (Double binding)</label>
-  <input type="text" class="form-control" [(ngModel)]="inputBindingA">
+  <input type="text" class="form-control" [(ngModel)]="inputBindingA" #inputA>
 </app-form-field>
 
-<app-form-field>
+<app-form-field [listener]="inputB.value">
   <label>Input B (Double binding / Empty at init)</label>
-  <input type="text" class="form-control" [(ngModel)]="inputBindingB">
+  <input type="text" class="form-control" [(ngModel)]="inputBindingB" #inputB>
 </app-form-field>
 
 <button type="button" class="btn btn-primary" (click)="inputDemoBindingSet()">Change Input B content (from component.ts)</button>
