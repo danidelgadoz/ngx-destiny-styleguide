@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-form-field-demo',
   templateUrl: './form-field-demo.component.html',
-  styleUrls: ['./form-field-demo.component.css']
+  styleUrls: ['./form-field-demo.component.scss']
 })
 export class FormFieldDemoComponent implements OnInit {
   inputBindingA= 'Texto setteado desde el component.ts';
